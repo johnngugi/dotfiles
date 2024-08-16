@@ -13,7 +13,16 @@ return {
     },
     config = function()
         local telescope = require("telescope")
-        telescope.setup()
+        telescope.setup({
+                defaults = {
+                    file_ignore_patterns = { '.git/' }
+                },
+                pickers = {
+                    find_files = {
+                        hidden = true
+                    }
+                }
+        })
 
         telescope.load_extension("fzf")
         telescope.load_extension("live_grep_args")
