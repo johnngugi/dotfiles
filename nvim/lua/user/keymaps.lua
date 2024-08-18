@@ -24,6 +24,10 @@ vim.keymap.set('v', 'p', '"_dP')
 vim.keymap.set('i', ';;', '<Esc>A;')
 vim.keymap.set('i', ',,', '<Esc>A,')
 
+-- Diagnostics.
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [d]iagnostic' })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [d]iagnostic' })
+
 -- Quickly clear search highlighting.
 --vim.keymap.set('n', '<Leader>k', ':nohlsearch<CR>')
 
