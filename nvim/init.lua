@@ -556,6 +556,7 @@ require("lazy").setup({
 					--  For example, in C this would take you to the header.
 					map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
+					map("K", vim.lsp.buf.hover, "[C]ode [Hover]")
 					-- The following two autocommands are used to highlight references of the
 					-- word under your cursor when your cursor rests there for a little while.
 					--    See `:help CursorHold` for information about when this is executed
@@ -616,6 +617,7 @@ require("lazy").setup({
 			--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 			local servers = {
 				-- clangd = {},
+				-- Go
 				gopls = {
 					settings = {
 						gopls = {
@@ -648,6 +650,14 @@ require("lazy").setup({
 							},
 							-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
 							-- diagnostics = { disable = { 'missing-fields' } },
+						},
+					},
+				},
+
+				powershell_es = {
+					settings = {
+						powershell_es = {
+							bundle_path = "C:/Tools/PowerShellEditorServices",
 						},
 					},
 				},
@@ -921,6 +931,7 @@ require("lazy").setup({
 				"luadoc",
 				"markdown",
 				"markdown_inline",
+				"powershell",
 				"query",
 				"vim",
 				"vimdoc",
