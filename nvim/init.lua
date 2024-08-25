@@ -913,6 +913,41 @@ require("lazy").setup({
 				return "%2l:%-2v"
 			end
 
+			---@diagnostic disable-next-line: duplicate-set-field
+			statusline.section_fileinfo = function()
+				local filetype = vim.bo.filetype
+
+				-- Don't show anything if there is no filetype
+				if filetype == "" then
+					return ""
+				end
+
+				-- Get file icon from 'nvim-web-devicons'
+				local has_devicons, devicons = pcall(require, "nvim-web-devicons")
+				if not has_devicons then
+					return
+				end
+
+				local get_icon = function()
+					return (devicons.get_icon(vim.fn.expand("%:t"), nil, { default = true }))
+				end
+
+				-- Add filetype icon
+				filetype = get_icon() .. " " .. filetype
+
+				-- Construct output string if buffer is not normal
+				if vim.bo.buftype ~= "" then
+					return filetype
+				end
+
+				-- Construct output string with extra file info
+				local encoding = vim.bo.fileencoding or vim.bo.encoding
+				local format = vim.bo.fileformat
+				local shiftwidth = (vim.bo.expandtab and "󱁐 " or "⇥ ") .. vim.bo.shiftwidth
+
+				return string.format("%s %s[%s] %s", filetype, encoding, format, shiftwidth)
+			end
+
 			-- ... and there is more!
 			--  Check out: https://github.com/echasnovski/mini.nvim
 		end,
