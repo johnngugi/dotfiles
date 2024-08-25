@@ -128,6 +128,10 @@ vim.keymap.set("v", "p", '"_dP')
 vim.keymap.set("i", ";;", "<Esc>A;")
 vim.keymap.set("i", ",,", "<Esc>A,")
 
+-- Move highlighted text up or down
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
