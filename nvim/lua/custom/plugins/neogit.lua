@@ -7,4 +7,8 @@ return {
 		"nvim-telescope/telescope.nvim", -- optional
 	},
 	config = true,
+	keys = {
+		{ "<leader>gg", ":Neogit<CR>", desc = "Neogit" },
+		{ "<leader>gd", ":DiffviewOpen<CR>", desc = "DiffviewOpen" },
+	},
 }

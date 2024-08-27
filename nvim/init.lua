@@ -182,10 +182,10 @@ vim.opt.scrolloff = 10
 -- ask for confirmation instead of erroring
 vim.opt.confirm = true
 
-vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
+vim.opt.softtabstop = 4
 vim.opt.smartindent = true
 
 -- [[ Basic Keymaps ]]
@@ -317,6 +317,7 @@ require("lazy").setup({
 				{ "<leader>s", group = "[S]earch" },
 				{ "<leader>w", group = "[W]orkspace" },
 				{ "<leader>t", group = "[T]oggle" },
+				{ "<leader>g", group = "[G]it" },
 				{ "<leader>h", group = "Git [H]unk", mode = { "n", "v" } },
 			})
 		end,

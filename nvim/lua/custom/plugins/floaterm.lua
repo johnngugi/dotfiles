@@ -3,9 +3,9 @@
 return {
 	"voldikss/vim-floaterm",
 	keys = {
-		{ "<F1>", ":FloatermToggle<CR>" },
-		{ "<F1>", "<Esc>:FloatermToggle<CR>", mode = "i" },
-		{ "<F1>", "<C-\\><C-n>:FloatermToggle<CR>", mode = "t" },
+		{ "<F1>", ":FloatermToggle<CR>", desc = "Floaterm toggle (n)" },
+		{ "<F1>", "<Esc>:FloatermToggle<CR>", mode = "i", desc = "Floaterm toggle (i)" },
+		{ "<F1>", "<C-\\><C-n>:FloatermToggle<CR>", mode = "t", desc = "Floaterm toggle (t)" },
 	},
 	cmd = { "FloatermToggle" },
 	init = function()
