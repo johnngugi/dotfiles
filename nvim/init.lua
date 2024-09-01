@@ -182,11 +182,14 @@ vim.opt.scrolloff = 10
 -- ask for confirmation instead of erroring
 vim.opt.confirm = true
 
+-- spaces as tabs
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.softtabstop = 4
 vim.opt.smartindent = true
+
+vim.opt.wrap = false
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
@@ -318,6 +321,7 @@ require("lazy").setup({
 				{ "<leader>w", group = "[W]orkspace" },
 				{ "<leader>t", group = "[T]oggle" },
 				{ "<leader>g", group = "[G]it" },
+				{ "<leader>H", group = "[H]arpoon" },
 				{ "<leader>h", group = "Git [H]unk", mode = { "n", "v" } },
 			})
 		end,
@@ -901,7 +905,17 @@ require("lazy").setup({
 			-- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
 			-- - sd'   - [S]urround [D]elete [']quotes
 			-- - sr)'  - [S]urround [R]eplace [)] [']
-			require("mini.surround").setup()
+			require("mini.surround").setup({
+				mappings = {
+					add = "gsa", -- Add surrounding in Normal and Visual modes
+					delete = "gsd", -- Delete surrounding
+					find = "gsf", -- Find surrounding (to the right)
+					find_left = "gsF", -- Find surrounding (to the left)
+					highlight = "gsh", -- Highlight surrounding
+					replace = "gsr", -- Replace surrounding
+					update_n_lines = "gsn", -- Update `n_lines`
+				},
+			})
 
 			-- Simple and easy statusline.
 			--  You could remove this setup call if you don't like it,
@@ -1013,7 +1027,7 @@ require("lazy").setup({
 	--  Here are some example plugins that I've included in the Kickstart repository.
 	--  Uncomment any of the lines below to enable them (you will need to restart nvim).
 	--
-	-- require 'kickstart.plugins.debug',
+	require("kickstart.plugins.debug"),
 	require("kickstart.plugins.indent_line"),
 	require("kickstart.plugins.lint"),
 	require("kickstart.plugins.autopairs"),
