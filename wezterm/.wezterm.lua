@@ -7,7 +7,7 @@ local config = wezterm.config_builder()
 -- This is where you actually apply your config choices
 -- config.default_prog = { "pwsh" }
 config.font = wezterm.font("FiraCode Nerd Font")
-config.font_size = 16
+config.font_size = 18
 config.color_scheme = "Catppuccin Mocha"
 
 config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 2000 }
