@@ -662,14 +662,6 @@ require("lazy").setup({
 						},
 					},
 				},
-
-				powershell_es = {
-					settings = {
-						powershell_es = {
-							bundle_path = "C:/Tools/PowerShellEditorServices",
-						},
-					},
-				},
 			}
 
 			-- Ensure the servers and tools above are installed
@@ -686,6 +678,20 @@ require("lazy").setup({
 			vim.list_extend(ensure_installed, {
 				"stylua", -- Used to format Lua code
 			})
+
+			-- if in windows install poweshell language server
+			if vim.fn.has("win64") == 1 or vim.fn.has("win32") then
+				vim.list_extend(ensure_installed, {
+					powershell_es = {
+						settings = {
+							powershell_es = {
+								bundle_path = "C:/Tools/PowerShellEditorServices",
+							},
+						},
+					},
+				})
+			end
+
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
 			require("mason-lspconfig").setup({

@@ -13,6 +13,8 @@ return {
 		vim.g.floaterm_height = 0.4
 		vim.g.floaterm_wintype = "split"
 		-- Windows
-		-- vim.g.floaterm_shell = 'pwsh'
+		if vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 then
+			vim.g.floaterm_shell = "pwsh"
+		end
 	end,
 }
