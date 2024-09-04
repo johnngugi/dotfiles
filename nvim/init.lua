@@ -984,6 +984,7 @@ require("lazy").setup({
 			ensure_installed = {
 				"bash",
 				"c",
+				"dart",
 				"diff",
 				"go",
 				"html",
