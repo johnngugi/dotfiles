@@ -30,7 +30,7 @@ return {
 		return {
 			-- Basic debugging keymaps, feel free to change to your liking!
 			{ "<F5>", dap.continue, desc = "Debug: Start/Continue" },
-			{ "<F1>", dap.step_into, desc = "Debug: Step Into" },
+			{ "<F6>", dap.step_into, desc = "Debug: Step Into" },
 			{ "<F2>", dap.step_over, desc = "Debug: Step Over" },
 			{ "<F3>", dap.step_out, desc = "Debug: Step Out" },
 			{ "<leader>b", dap.toggle_breakpoint, desc = "Debug: Toggle Breakpoint" },
