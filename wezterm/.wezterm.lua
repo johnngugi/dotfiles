@@ -82,6 +82,11 @@ config.keys = {
 		mods = "LEADER",
 		action = wezterm.action.AdjustPaneSize({ "Up", 5 }),
 	},
+	{
+		key = "w",
+		mods = "LEADER",
+		action = wezterm.action.ShowTabNavigator,
+	},
 }
 
 for i = 0, 8 do
