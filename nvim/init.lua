@@ -393,6 +393,7 @@ require("lazy").setup({
 				defaults = {
 					file_ignore_patterns = { ".git/" },
 					path_display = { "truncate" },
+					layout_strategy = "vertical",
 				},
 				pickers = {
 					find_files = {
