@@ -5,7 +5,17 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 -- This is where you actually apply your config choices
--- config.default_prog = { "pwsh" }
+if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+	config.default_prog = { "pwsh" }
+end
+
+config.launch_menu = {
+	{
+		label = "nu",
+		args = { "nu" },
+	},
+}
+
 config.font = wezterm.font("FiraCode Nerd Font")
 config.font_size = 18
 config.color_scheme = "Catppuccin Mocha"

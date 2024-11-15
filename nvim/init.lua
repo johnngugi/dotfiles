@@ -984,6 +984,9 @@ require("lazy").setup({
 	{ -- Highlight, edit, and navigate code
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
+		dependencies = {
+			{ "nushell/tree-sitter-nu" },
+		},
 		opts = {
 			ensure_installed = {
 				"bash",
@@ -1002,6 +1005,7 @@ require("lazy").setup({
 				"vimdoc",
 				"typescript",
 				"javascript",
+				"nu",
 			},
 			-- Autoinstall languages that are not installed
 			auto_install = true,
