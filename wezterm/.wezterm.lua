@@ -117,28 +117,5 @@ end
 config.hide_tab_bar_if_only_one_tab = false
 config.use_fancy_tab_bar = false
 
--- Equivalent to POSIX basename(3)
--- Given "/foo/bar" returns "bar"
--- Given "c:\\foo\\bar" returns "bar"
-local function basename(s)
-	return string.gsub(s, "(.*[/\\])(.*)", "%2")
-end
-
----@diagnostic disable-next-line: unused-local
-wezterm.on("format-tab-title", function(tab, tabs, panes, conf, hover, max_width)
-	local pane = tab.active_pane
-	local cwd = pane.current_working_dir
-
-	local title
-	if not cwd then
-		title = tab.tab_title
-	else
-		title = tab.tab_index + 1 .. " " .. basename(cwd.path)
-	end
-
-	return {
-		{ Text = " " .. title .. " " },
-	}
-end)
 -- and finally, return the configuration to wezterm
 return config
