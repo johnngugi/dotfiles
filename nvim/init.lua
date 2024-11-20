@@ -191,6 +191,10 @@ vim.opt.smartindent = true
 
 vim.opt.wrap = false
 
+-- disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
