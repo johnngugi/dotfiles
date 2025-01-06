@@ -243,6 +243,14 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
+-- Set comment string for Gleam files
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "gleam",
+	callback = function()
+		vim.bo.commentstring = "//%s"
+	end,
+})
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -572,6 +580,12 @@ require("lazy").setup({
 					map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
 					map("K", vim.lsp.buf.hover, "[C]ode [Hover]")
+					-- vim.keymap.set(
+					-- 	"i",
+					-- 	"C-k",
+					-- 	vim.lsp.buf.hover,
+					-- 	{ buffer = event.buf, desc = "LSP: [C]ode [Hover] insert mode" }
+					-- )
 					-- The following two autocommands are used to highlight references of the
 					-- word under your cursor when your cursor rests there for a little while.
 					--    See `:help CursorHold` for information about when this is executed
@@ -712,6 +726,12 @@ require("lazy").setup({
 						require("lspconfig")[server_name].setup(server)
 					end,
 				},
+			})
+
+			-- Manual Gleam LSP configuration
+			require("lspconfig").gleam.setup({
+				cmd = { "gleam", "lsp" },
+				capabilities = capabilities, -- Use the capabilities from your existing LSP setup
 			})
 		end,
 	},
